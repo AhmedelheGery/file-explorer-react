@@ -20,9 +20,12 @@ const FileExplorer: React.FC<FolderProps> = ({ explorer }) => {
     x: 0,
     y: 0,
   });
-  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedItem, setSelectedItem] = useState<ExplorerProps | null>(null);
 
-  const handleRightClick = (e: any, item: any) => {
+  const handleRightClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+    item: ExplorerProps
+  ) => {
     e.preventDefault();
     setSelectedItem(item);
     setContextMenuPosition({ x: e.pageX, y: e.pageY });
@@ -34,7 +37,7 @@ const FileExplorer: React.FC<FolderProps> = ({ explorer }) => {
   };
 
   const handleAction = (action: string) => {
-    console.log(`Action: ${action} on file/folder: ${selectedItem.name}`);
+    console.log(`Action: ${action} on file/folder: ${selectedItem?.name}`);
     handleCloseContextMenu();
   };
 
@@ -52,7 +55,7 @@ const FileExplorer: React.FC<FolderProps> = ({ explorer }) => {
           </div>
           {/* CHILDREN OF ROOT */}
           <div style={{ display: expand ? 'block' : 'none', paddingLeft: 25 }}>
-            {explorer.items.map((item: any) => {
+            {explorer.items.map((item: ExplorerProps) => {
               return <FileExplorer explorer={item} key={item.id} />;
             })}
           </div>
