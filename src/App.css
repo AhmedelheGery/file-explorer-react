@@ -1,0 +1,44 @@
+.app {
+  background-color: #ebe1eb;
+  min-height: 100vh;
+  width: 500px;
+}
+
+.file-explorer-container span {
+  font-size: 30px;
+  color: #000;
+}
+.folder {
+  margin-top: 5px;
+  background-color: rgb(194, 185, 185);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.folder > span {
+  margin: 0 5px;
+}
+
+.file {
+  margin-top: 5px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-wrapper {
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+  color: #000;
+  padding: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.menu-wrapper .list-item {
+  cursor: pointer;
+}
